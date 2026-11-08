@@ -1,0 +1,35 @@
+{
+  "table10": {
+    "tolerance": 0.01,
+    "cpsat": {
+      "offline": 0.22,
+      "edf": 0.54,
+      "aqedf": 0.54,
+      "rh_da": 0.56,
+      "spt": 3.84
+    },
+    "bruteforce6": {
+      "offline": 1.13,
+      "edf": 4.85,
+      "aqedf": 4.48,
+      "rh_da": 4.48,
+      "spt": 5.47
+    },
+    "bruteforce8": {
+      "offline": 5.73,
+      "edf": 14.23,
+      "aqedf": 14.23,
+      "rh_da": 11.33,
+      "spt": 13.65
+    }
+  },
+  "validation": {
+    "medium_non_inferior": 17,
+    "high_non_inferior": 20,
+    "n120_non_inferior": 10,
+    "n160_non_inferior": 10,
+    "total_non_inferior": 57,
+    "total_instances": 60
+  },
+  "selected": [1.0, 1.5]
+}
