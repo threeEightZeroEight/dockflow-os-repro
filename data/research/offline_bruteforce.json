@@ -1,0 +1,57 @@
+[
+  {
+    "seed": 300,
+    "feasible_orders": 76,
+    "offline_optimum": 1.426,
+    "online": {
+      "edf": 20.041,
+      "aqedf": 18.195,
+      "spt": 23.139,
+      "rh_da": 18.195
+    }
+  },
+  {
+    "seed": 301,
+    "feasible_orders": 52,
+    "offline_optimum": 0.0,
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 302,
+    "feasible_orders": 108,
+    "offline_optimum": 0.0,
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 303,
+    "feasible_orders": 66,
+    "offline_optimum": 0.0,
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 304,
+    "feasible_orders": 66,
+    "offline_optimum": 4.224,
+    "online": {
+      "edf": 4.224,
+      "aqedf": 4.224,
+      "spt": 4.224,
+      "rh_da": 4.224
+    }
+  }
+]

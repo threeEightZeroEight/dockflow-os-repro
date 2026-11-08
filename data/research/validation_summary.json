@@ -1,0 +1,100 @@
+{
+  "selected": {
+    "lambda": 1.0,
+    "gamma": 1.5
+  },
+  "selection_set": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219
+  ],
+  "report_set": [
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319
+  ],
+  "by_scenario": {
+    "medium": {
+      "instances": 20,
+      "non_inferior": 17,
+      "ratio": 0.85,
+      "mean_miss_delta": -0.0133,
+      "worst_miss_delta": 0.0667,
+      "failures": [
+        {
+          "seed": 306,
+          "miss_delta": 0.0667,
+          "wait_delta": -0.0949
+        },
+        {
+          "seed": 312,
+          "miss_delta": 0.0333,
+          "wait_delta": 0.0453
+        },
+        {
+          "seed": 314,
+          "miss_delta": 0.0667,
+          "wait_delta": 0.0268
+        }
+      ]
+    },
+    "high": {
+      "instances": 20,
+      "non_inferior": 20,
+      "ratio": 1.0,
+      "mean_miss_delta": -0.096,
+      "worst_miss_delta": -0.04,
+      "failures": []
+    },
+    "n120": {
+      "instances": 10,
+      "non_inferior": 10,
+      "ratio": 1.0,
+      "mean_miss_delta": -0.1167,
+      "worst_miss_delta": -0.0333,
+      "failures": []
+    },
+    "n160": {
+      "instances": 10,
+      "non_inferior": 10,
+      "ratio": 1.0,
+      "mean_miss_delta": -0.1725,
+      "worst_miss_delta": -0.0625,
+      "failures": []
+    }
+  }
+}

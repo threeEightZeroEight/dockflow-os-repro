@@ -1,0 +1,55 @@
+digraph states {
+
+  graph [bgcolor="white", fontname="Hiragino Sans GB", fontsize=12];
+  node [fontname="Hiragino Sans GB", fontsize=11];
+  edge [fontname="Hiragino Sans GB", fontsize=10, color="#4b5b6b"];
+
+  rankdir=TB; nodesep=0.6; ranksep=0.28;
+  node [shape=box, style="rounded,filled"];
+
+  vtitle [label="车辆状态机（DockFlow）", shape=plaintext, fontsize=13, fontcolor="#288b85"];
+  ptitle [label="进程状态机（操作系统）", shape=plaintext, fontsize=13, fontcolor="#8769ad"];
+  { rank=same; vtitle; ptitle; }
+
+  v1 [label="PENDING（还在路上）", fillcolor="#e9f3ee"];
+  v2 [label="BLOCKED（等货物依赖）", fillcolor="#fdeeee"];
+  v3 [label="READY（可被调度）", fillcolor="#e9f3ee"];
+  v4 [label="APPROACHING / PROCESSING（驶入与装卸）", fillcolor="#e9f3ee"];
+  v5 [label="EXITING（驶向出口）", fillcolor="#e9f3ee"];
+  v6 [label="DEPARTED（已离开）", fillcolor="#eef2f7"];
+
+  p1 [label="新建 New", fillcolor="#f1ecf7"];
+  p2 [label="阻塞 Blocked（等待 I/O 或事件）", fillcolor="#f1ecf7"];
+  p3 [label="就绪 Ready", fillcolor="#f1ecf7"];
+  p4 [label="运行 Running", fillcolor="#f1ecf7"];
+  p5 [label="终止 Terminated", fillcolor="#f1ecf7"];
+
+  { rank=same; v1; p1; }
+  { rank=same; v2; p2; }
+  { rank=same; v3; p3; }
+  { rank=same; v4; p4; }
+  { rank=same; v6; p5; }
+
+  v1 -> v2 [label="到站但依赖未满足"];
+  v2 -> v3 [label="依赖全部卸完（SERVICE_FINISHED）"];
+  v3 -> v4 [label="被算法选中并靠台"];
+  v4 -> v5 [label="装卸完成"];
+  v5 -> v6 [label="驶离（月台此时才释放）"];
+  v2 -> v3 [style=dashed, color="#be8254"];
+
+  p1 -> p2 [label="等待资源/事件"];
+  p2 -> p3 [label="资源就绪"];
+  p3 -> p4 [label="被调度"];
+  p4 -> p2 [label="等待事件", constraint=false];
+  p4 -> p5 [label="结束"];
+
+  v2 -> p2 [style=invis];
+  v3 -> p3 [style=invis];
+  v4 -> p4 [style=invis];
+  v6 -> p5 [style=invis];
+
+  v2 -> p2 [style=dotted, color="#9aa7b4", dir=both, label="同构", fontcolor="#7a8fa6"];
+  v3 -> p3 [style=dotted, color="#9aa7b4", dir=both];
+  v4 -> p4 [style=dotted, color="#9aa7b4", dir=both];
+  v6 -> p5 [style=dotted, color="#9aa7b4", dir=both];
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "seed": 300,
+    "offline": {
+      "status": "OPTIMAL",
+      "objective_minutes": 0.0,
+      "bound": 0.0
+    },
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 301,
+    "offline": {
+      "status": "OPTIMAL",
+      "objective_minutes": 1.1,
+      "bound": 1.1
+    },
+    "online": {
+      "edf": 2.677,
+      "aqedf": 2.677,
+      "spt": 13.126,
+      "rh_da": 2.677
+    }
+  },
+  {
+    "seed": 302,
+    "offline": {
+      "status": "OPTIMAL",
+      "objective_minutes": 0.0,
+      "bound": 0.0
+    },
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 6.054,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 303,
+    "offline": {
+      "status": "OPTIMAL",
+      "objective_minutes": 0.0,
+      "bound": 0.0
+    },
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.0
+    }
+  },
+  {
+    "seed": 304,
+    "offline": {
+      "status": "OPTIMAL",
+      "objective_minutes": 0.0,
+      "bound": 0.0
+    },
+    "online": {
+      "edf": 0.0,
+      "aqedf": 0.0,
+      "spt": 0.0,
+      "rh_da": 0.124
+    }
+  }
+]

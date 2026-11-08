@@ -1,0 +1,568 @@
+{
+  "by_scenario": {
+    "low": {
+      "edf": {
+        "avg_waiting_time": {
+          "mean": 3.717,
+          "ci95": [
+            2.883,
+            4.551
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 20
+        }
+      },
+      "qedf": {
+        "avg_waiting_time": {
+          "mean": 3.717,
+          "ci95": [
+            2.883,
+            4.551
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 20
+        }
+      },
+      "aqedf": {
+        "avg_waiting_time": {
+          "mean": 3.717,
+          "ci95": [
+            2.883,
+            4.551
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "n": 20
+        }
+      }
+    },
+    "medium": {
+      "edf": {
+        "avg_waiting_time": {
+          "mean": 9.0728,
+          "ci95": [
+            7.8848,
+            10.2607
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.0533,
+          "ci95": [
+            0.0208,
+            0.0859
+          ],
+          "n": 20
+        }
+      },
+      "qedf": {
+        "avg_waiting_time": {
+          "mean": 9.0938,
+          "ci95": [
+            7.8721,
+            10.3156
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.1033,
+          "ci95": [
+            0.0714,
+            0.1353
+          ],
+          "n": 20
+        }
+      },
+      "aqedf": {
+        "avg_waiting_time": {
+          "mean": 9.0867,
+          "ci95": [
+            7.8846,
+            10.2889
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.05,
+          "ci95": [
+            0.0271,
+            0.0729
+          ],
+          "n": 20
+        }
+      }
+    },
+    "high": {
+      "edf": {
+        "avg_waiting_time": {
+          "mean": 86.0675,
+          "ci95": [
+            84.1714,
+            87.9636
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.896,
+          "ci95": [
+            0.8764,
+            0.9156
+          ],
+          "n": 20
+        }
+      },
+      "qedf": {
+        "avg_waiting_time": {
+          "mean": 86.8692,
+          "ci95": [
+            84.95,
+            88.7884
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.78,
+          "ci95": [
+            0.7645,
+            0.7955
+          ],
+          "n": 20
+        }
+      },
+      "aqedf": {
+        "avg_waiting_time": {
+          "mean": 87.1826,
+          "ci95": [
+            85.2148,
+            89.1505
+          ],
+          "n": 20
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.779,
+          "ci95": [
+            0.7625,
+            0.7955
+          ],
+          "n": 20
+        }
+      }
+    },
+    "n120": {
+      "edf": {
+        "avg_waiting_time": {
+          "mean": 29.2427,
+          "ci95": [
+            26.6988,
+            31.7866
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.49,
+          "ci95": [
+            0.4372,
+            0.5428
+          ],
+          "n": 10
+        }
+      },
+      "qedf": {
+        "avg_waiting_time": {
+          "mean": 29.1333,
+          "ci95": [
+            26.5335,
+            31.733
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.345,
+          "ci95": [
+            0.3033,
+            0.3867
+          ],
+          "n": 10
+        }
+      },
+      "aqedf": {
+        "avg_waiting_time": {
+          "mean": 29.4961,
+          "ci95": [
+            26.8492,
+            32.143
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.3383,
+          "ci95": [
+            0.3006,
+            0.3761
+          ],
+          "n": 10
+        }
+      }
+    },
+    "n160": {
+      "edf": {
+        "avg_waiting_time": {
+          "mean": 52.0115,
+          "ci95": [
+            49.1987,
+            54.8244
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.6038,
+          "ci95": [
+            0.5438,
+            0.6637
+          ],
+          "n": 10
+        }
+      },
+      "qedf": {
+        "avg_waiting_time": {
+          "mean": 52.7158,
+          "ci95": [
+            49.8314,
+            55.6001
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.4537,
+          "ci95": [
+            0.423,
+            0.4845
+          ],
+          "n": 10
+        }
+      },
+      "aqedf": {
+        "avg_waiting_time": {
+          "mean": 52.379,
+          "ci95": [
+            49.7228,
+            55.0353
+          ],
+          "n": 10
+        },
+        "outbound_deadline_miss_rate": {
+          "mean": 0.4362,
+          "ci95": [
+            0.4069,
+            0.4656
+          ],
+          "n": 10
+        }
+      }
+    }
+  },
+  "paired": [
+    {
+      "scenario": "low",
+      "metric": "outbound_deadline_miss_rate",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": 0.0,
+      "ci95_diff": [
+        0.0,
+        0.0
+      ],
+      "t_p": 1.0,
+      "wilcoxon_p": 1.0,
+      "cohens_d": 0.0
+    },
+    {
+      "scenario": "low",
+      "metric": "avg_waiting_time",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": 0.0,
+      "ci95_diff": [
+        0.0,
+        0.0
+      ],
+      "t_p": 1.0,
+      "wilcoxon_p": 1.0,
+      "cohens_d": 0.0
+    },
+    {
+      "scenario": "medium",
+      "metric": "outbound_deadline_miss_rate",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": -0.0033,
+      "ci95_diff": [
+        -0.0145,
+        0.0079
+      ],
+      "t_p": 0.541,
+      "wilcoxon_p": 0.655,
+      "cohens_d": -0.139
+    },
+    {
+      "scenario": "medium",
+      "metric": "avg_waiting_time",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": 0.014,
+      "ci95_diff": [
+        -0.0177,
+        0.0456
+      ],
+      "t_p": 0.368,
+      "wilcoxon_p": 0.465,
+      "cohens_d": 0.206
+    },
+    {
+      "scenario": "high",
+      "metric": "outbound_deadline_miss_rate",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": -0.117,
+      "ci95_diff": [
+        -0.1331,
+        -0.1009
+      ],
+      "t_p": 4.54e-12,
+      "wilcoxon_p": 8.62e-05,
+      "cohens_d": -3.391
+    },
+    {
+      "scenario": "high",
+      "metric": "avg_waiting_time",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 20,
+      "mean_diff": 1.1151,
+      "ci95_diff": [
+        0.2531,
+        1.9772
+      ],
+      "t_p": 0.014,
+      "wilcoxon_p": 0.0192,
+      "cohens_d": 0.605
+    },
+    {
+      "scenario": "n120",
+      "metric": "outbound_deadline_miss_rate",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 10,
+      "mean_diff": -0.1517,
+      "ci95_diff": [
+        -0.1851,
+        -0.1182
+      ],
+      "t_p": 2.91e-06,
+      "wilcoxon_p": 0.00195,
+      "cohens_d": -3.242
+    },
+    {
+      "scenario": "n120",
+      "metric": "avg_waiting_time",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 10,
+      "mean_diff": 0.2534,
+      "ci95_diff": [
+        -0.0067,
+        0.5135
+      ],
+      "t_p": 0.055,
+      "wilcoxon_p": 0.0488,
+      "cohens_d": 0.697
+    },
+    {
+      "scenario": "n160",
+      "metric": "outbound_deadline_miss_rate",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 10,
+      "mean_diff": -0.1675,
+      "ci95_diff": [
+        -0.2115,
+        -0.1235
+      ],
+      "t_p": 1.23e-05,
+      "wilcoxon_p": 0.00195,
+      "cohens_d": -2.72
+    },
+    {
+      "scenario": "n160",
+      "metric": "avg_waiting_time",
+      "a": "aqedf",
+      "b": "edf",
+      "n": 10,
+      "mean_diff": 0.3675,
+      "ci95_diff": [
+        -0.1173,
+        0.8523
+      ],
+      "t_p": 0.121,
+      "wilcoxon_p": 0.275,
+      "cohens_d": 0.542
+    }
+  ],
+  "dependency": {
+    "dep0.0": {
+      "edf": {
+        "mean": 0.0317,
+        "ci95": [
+          0.0131,
+          0.0502
+        ],
+        "n": 20
+      },
+      "qedf": {
+        "mean": 0.055,
+        "ci95": [
+          0.0346,
+          0.0754
+        ],
+        "n": 20
+      },
+      "aqedf": {
+        "mean": 0.0317,
+        "ci95": [
+          0.0131,
+          0.0502
+        ],
+        "n": 20
+      }
+    },
+    "dep0.2": {
+      "edf": {
+        "mean": 0.03,
+        "ci95": [
+          0.0111,
+          0.0489
+        ],
+        "n": 20
+      },
+      "qedf": {
+        "mean": 0.0483,
+        "ci95": [
+          0.0266,
+          0.0701
+        ],
+        "n": 20
+      },
+      "aqedf": {
+        "mean": 0.0333,
+        "ci95": [
+          0.0137,
+          0.0529
+        ],
+        "n": 20
+      }
+    },
+    "dep0.4": {
+      "edf": {
+        "mean": 0.0717,
+        "ci95": [
+          0.0317,
+          0.1116
+        ],
+        "n": 20
+      },
+      "qedf": {
+        "mean": 0.0983,
+        "ci95": [
+          0.0728,
+          0.1239
+        ],
+        "n": 20
+      },
+      "aqedf": {
+        "mean": 0.075,
+        "ci95": [
+          0.0368,
+          0.1132
+        ],
+        "n": 20
+      }
+    },
+    "dep0.6": {
+      "edf": {
+        "mean": 0.0783,
+        "ci95": [
+          0.0295,
+          0.1272
+        ],
+        "n": 20
+      },
+      "qedf": {
+        "mean": 0.1217,
+        "ci95": [
+          0.0861,
+          0.1572
+        ],
+        "n": 20
+      },
+      "aqedf": {
+        "mean": 0.0733,
+        "ci95": [
+          0.0317,
+          0.1149
+        ],
+        "n": 20
+      }
+    },
+    "dep0.8": {
+      "edf": {
+        "mean": 0.1533,
+        "ci95": [
+          0.0906,
+          0.216
+        ],
+        "n": 20
+      },
+      "qedf": {
+        "mean": 0.1967,
+        "ci95": [
+          0.1556,
+          0.2378
+        ],
+        "n": 20
+      },
+      "aqedf": {
+        "mean": 0.1617,
+        "ci95": [
+          0.1149,
+          0.2084
+        ],
+        "n": 20
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+digraph architecture {
+
+  graph [bgcolor="white", fontname="Hiragino Sans GB", fontsize=12];
+  node [fontname="Hiragino Sans GB", fontsize=11];
+  edge [fontname="Hiragino Sans GB", fontsize=10, color="#4b5b6b"];
+
+  rankdir=TB; nodesep=0.35; ranksep=0.55; compound=true;
+  subgraph cluster_fe {
+    label="前端（Vue 3 + three.js + ECharts）"; color="#5b8b69"; style="rounded";
+    fe [label="3D 园区回放 · 指标图表 · 实验面板", shape=box, style="rounded,filled", fillcolor="#e9f3ee"];
+  }
+  subgraph cluster_be {
+    label="后端（FastAPI + SQLite）"; color="#4275ad"; style="rounded";
+    api [label="REST API（14 端点）\n校验 · 分页 · 错误统一", shape=box, style="rounded,filled", fillcolor="#e8f0f8"];
+    svc [label="services 编排\nqueries / comparisons / experiments / mendeley", shape=box, style="rounded,filled", fillcolor="#e8f0f8"];
+    client [label="simulation_client.py\n（唯一收口）", shape=box, style="rounded,filled", fillcolor="#fff3df"];
+    db [label="SQLite（10 张表）\n快照 · 运行 · 事件 · 实验", shape=cylinder, style="filled", fillcolor="#f2f4f7"];
+  }
+  subgraph cluster_sim {
+    label="仿真层（1 号）"; color="#8769ad"; style="rounded";
+    engine [label="离散事件引擎\n时间 / 状态 / 依赖 / 月台 / 指标", shape=box, style="rounded,filled", fillcolor="#f1ecf7"];
+    exps [label="实验 · 扫描 · 评分", shape=box, style="rounded,filled", fillcolor="#f1ecf7"];
+  }
+  subgraph cluster_sched {
+    label="调度层（2 号）"; color="#be8254"; style="rounded";
+    sched [label="七种确定性策略\nselect_next（只读快照）", shape=box, style="rounded,filled", fillcolor="#fbf0e7"];
+  }
+  data [label="Mendeley 冻结 JSON\n（白名单只读）", shape=cylinder, style="filled", fillcolor="#eef2f7"];
+
+  fe -> api [label="HTTPS /api\nJSON 事件与指标", color="#4275ad"];
+  api -> svc [arrowhead=vee];
+  svc -> client [arrowhead=vee];
+  client -> engine [label="Python 调用\n（不写库）", color="#8769ad"];
+  engine -> sched [label="create_scheduler()\nselect_next()", color="#be8254"];
+  svc -> db [label="事务持久化", color="#4b5b6b"];
+  data -> svc [label="只读白名单", style=dashed, color="#9aa7b4"];
+  exps -> engine [style=dashed, arrowhead=vee, color="#9aa7b4"];
+}

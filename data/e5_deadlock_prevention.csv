@@ -1,0 +1,6 @@
+case,accepted,expected,message
+IN_depends_on_OUT_reverse_edge,False,False,IN I001 cannot have dependencies
+OUT_depends_on_itself,False,False,O001 depends on non-IN or missing truck O001
+depends_on_missing_truck,False,False,O001 depends on non-IN or missing truck I999
+duplicate_dependency,False,False,O001 depends_on must be a list with unique IDs
+no_compatible_dock,False,False,I001 has no compatible dock

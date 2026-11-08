@@ -1,0 +1,39 @@
+digraph dependency {
+
+  graph [bgcolor="white", fontname="Hiragino Sans GB", fontsize=12];
+  node [fontname="Hiragino Sans GB", fontsize=11];
+  edge [fontname="Hiragino Sans GB", fontsize=10, color="#4b5b6b"];
+
+  rankdir=LR; nodesep=0.3; ranksep=1.1;
+  node [shape=box, style="rounded,filled"];
+
+  subgraph cluster_in {
+    label="入站车（IN）"; color="#288b85"; style="rounded";
+    i1 [label="IN-1\n卸货 8 min", fillcolor="#e9f3ee"];
+    i2 [label="IN-2\n卸货 5 min", fillcolor="#e9f3ee"];
+  }
+  subgraph cluster_pallet {
+    label="托盘（货物，Mendeley 场景）"; color="#8aa0b5"; style="rounded";
+    p1 [label="P1", shape=ellipse, fillcolor="#eef2f7"];
+    p2 [label="P2", shape=ellipse, fillcolor="#eef2f7"];
+    p3 [label="P3", shape=ellipse, fillcolor="#eef2f7"];
+    px [label="P4（未匹配）", shape=ellipse, style="rounded,filled,dashed", fillcolor="#f7f7f7", fontcolor="#8a8a8a"];
+  }
+  subgraph cluster_out {
+    label="出站车（OUT）"; color="#be8254"; style="rounded";
+    o1 [label="OUT-1\n截止 90 min", fillcolor="#fbf0e7"];
+    o2 [label="OUT-2\n截止 120 min", fillcolor="#fbf0e7"];
+  }
+
+  i1 -> {p1 p2} [color="#288b85"];
+  i2 -> {p3 px} [color="#288b85"];
+  p1 -> o1 [color="#be8254"];
+  p2 -> o2 [color="#be8254"];
+  p3 -> o2 [color="#be8254"];
+
+  o1 -> i1 [style=dashed, color="#b66b79", label="depends_on\n（前驱约束）", constraint=false];
+  o2 -> i1 [style=dashed, color="#b66b79", constraint=false];
+  o2 -> i2 [style=dashed, color="#b66b79", constraint=false];
+
+  note [shape=note, style=filled, fillcolor="#fffbe6", label="解锁时机：IN 卸完货（SERVICE_FINISHED）\n释放时机：车辆驶离后月台才空出\n未匹配托盘（P4）不得伪造成已出库", fontsize=9];
+}
