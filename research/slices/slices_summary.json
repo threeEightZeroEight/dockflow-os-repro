@@ -1,0 +1,35 @@
+[
+  {
+    "slice": "early",
+    "window": [
+      0.0,
+      160.0
+    ],
+    "inbound": 38,
+    "outbound": 17,
+    "pallets": 701,
+    "scenario_id": "mendeley-slice-early-2d39a664499b"
+  },
+  {
+    "slice": "middle",
+    "window": [
+      160.0,
+      320.0
+    ],
+    "inbound": 53,
+    "outbound": 19,
+    "pallets": 620,
+    "scenario_id": "mendeley-slice-middle-1f850de58aec"
+  },
+  {
+    "slice": "late",
+    "window": [
+      320.0,
+      480.0
+    ],
+    "inbound": 36,
+    "outbound": 18,
+    "pallets": 106,
+    "scenario_id": "mendeley-slice-late-2ac4ca92448f"
+  }
+]
