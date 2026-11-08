@@ -4,5 +4,6 @@ __pycache__/
 .venv/
 .venv-ortools/
 .idea/
-.vscode/report.md
+.vscode/
+report.md
 report.docx
