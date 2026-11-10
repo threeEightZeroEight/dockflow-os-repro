@@ -8,7 +8,7 @@
 
 本仓库是 DockFlow 项目的**独立 OS 实验复现包**，不是 DockFlow 主仓库的分支、镜像或替代品。
 
-- 源项目：DockFlow（小组共享仓库，https://github.com/thetree61/DockFlow；快照提交 `e2b9d39`）
+- 源项目：DockFlow（小组共享仓库，https://github.com/thetree61/DockFlow ； 快照提交 `e2b9d39`）
 - `vendor/dockflow/` 仅固定运行实验所需的 `simulation`、`scheduler` 与 `scenario_21.json`
 
 - 同步方式、来源与许可见 `vendor/dockflow/PROVENANCE.md`
