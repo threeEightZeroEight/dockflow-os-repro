@@ -1,8 +1,8 @@
 PY ?= python
 
-.PHONY: all data analyze figures docx verify cpsat venv-ortools clean
+.PHONY: all data analyze figures verify cpsat venv-ortools clean
 
-all: data analyze figures docx verify
+all: data analyze figures verify
 
 data:
 	$(PY) collect_experiments.py
@@ -27,8 +27,6 @@ figures:
 	$(PY) make_adaptive_figures.py
 	$(PY) make_validation_figure.py
 
-docx:
-	@if [ -f report.md ]; then $(PY) make_docx.py; else echo "report.md 未提供，跳过 docx"; fi
 
 verify:
 	$(PY) verify.py

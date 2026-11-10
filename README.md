@@ -1,6 +1,6 @@
 # DockFlow OS 实验复现仓库
 
-本仓库是《前驱约束下的多资源调度：策略—负载交互与截止期失效的实证研究》的独立复现包，包含实验脚本、冻结数据与图表。报告正文与 docx **仅本地保留，不纳入版本控制**。
+本仓库是《前驱约束下的多资源调度：策略—负载交互与截止期失效的实证研究》的独立复现包，包含实验脚本、冻结数据与图表。论文正文、docx 与排版脚本**仅本地保留，不纳入版本控制**。
 
 它与 DockFlow 主仓库解耦：`vendor/dockflow/` 保存了运行实验所需的 `simulation`、`scheduler` 快照与 Mendeley 冻结实例，克隆本仓库即可复现，不依赖主仓库当前状态。来源版本见 `vendor/dockflow/PROVENANCE.md`。
 
@@ -10,7 +10,7 @@
 
 - 源项目：DockFlow（小组共享仓库，https://github.com/thetree61/DockFlow；快照提交 `e2b9d39`）
 - `vendor/dockflow/` 仅固定运行实验所需的 `simulation`、`scheduler` 与 `scenario_21.json`
-- 论文正文与 docx **不纳入本仓库**；这里只版本化脚本、冻结数据与图
+- 论文正文、docx 与排版脚本 **不纳入本仓库**；这里只版本化脚本、冻结数据与图
 - 同步方式、来源与许可见 `vendor/dockflow/PROVENANCE.md`
 
 ## 快速开始
@@ -21,15 +21,15 @@ python -m venv .venv
 .venv/bin/python verify.py          # 校验冻结数据的关键数值
 ```
 
-系统还需要 `pandoc`（生成 docx）与 `dot`（生成图 1–3）。版本与安装说明见 `docs/ENVIRONMENT.md`。
+系统还需要 `dot`（生成图 1–3）。版本与安装说明见 `docs/ENVIRONMENT.md`。
 
 ## 复现分级
 
 | 级别 | 命令 | 说明 |
 |---|---|---|
-| R0 直接审阅 | 无 | 直接查看 `data/`、`figures/`（docx 若本地存在） |
-| R1 重建图表 | `make figures` | 不重跑仿真，分钟级；docx 需本地提供 `report.md` |
-| R2 全量重跑 | `make all` | 重跑全部采集、统计与图；docx 可选 |
+| R0 直接审阅 | 无 | 直接查看 `data/`、`figures/` |
+| R1 重建图表 | `make figures` | 不重跑仿真，分钟级 |
+| R2 全量重跑 | `make all` | 重跑全部采集、统计与图 |
 | R3 离线最优 | `make venv-ortools cpsat` | CP-SAT 需独立环境 |
 
 `make verify` 会把 `data/research/` 中的原始 JSON 重新聚合并与 `data/expected_metrics.json` 比对，任何关键数值漂移都会以非零状态退出。
@@ -41,16 +41,14 @@ python -m venv .venv
 ├── collect_*.py            # 实验采集
 ├── analyze_*.py            # 统计推断
 ├── stats_analysis.py
-├── make_*.py               # 图与 docx
+├── make_*.py               # 图
 ├── collect_derived.py      # 真实切片、统一规模表、公平性指标的显式重建
 ├── verify.py               # 关键数值校验
 ├── research/qedf.py        # QEDF / AQEDF 研究原型（不进入产品契约）
 ├── research/slices/        # 3 个 Mendeley 时间切片
 ├── vendor/dockflow/        # simulation / scheduler 快照 + scenario_21.json
 ├── data/                   # 冻结结果（CSV / JSON）
-├── figures/                # 17 张正文图与 1 张附录图
-├── report.md                # 本地，不纳入 Git
-└── report.docx              # 本地，不纳入 Git
+└── figures/                # 17 张正文图与 1 张附录图
 ```
 
 ## 关键结果与校验口径
@@ -65,8 +63,8 @@ python -m venv .venv
 ## 环境
 
 - Python 3.13
-- numpy 2.1.3、pandas 2.2.3、scipy 1.15.3、matplotlib 3.10.0、python-docx 1.2.0
-- 系统：pandoc 2.12、graphviz 16.1.0
+- numpy 2.1.3、pandas 2.2.3、scipy 1.15.3、matplotlib 3.10.0
+- 系统：graphviz 16.1.0
 - CP-SAT：独立 venv 安装 `ortools==9.15.6755`（主环境可能因 libprotobuf 冲突失败）
 
 ## 数据来源与许可
@@ -79,4 +77,5 @@ python -m venv .venv
 
 - 报告中的合成实例覆盖 20–160 辆、三种竞争强度与四类实例族；真实实例只有一个公开冻结样本。
 - `cpsat_offline.py` 依赖 OR-Tools，不在默认 `requirements.txt` 中。
-- `decision_ms` 为运行时测量，复现时会有毫秒级抖动；其余指标应逐位一致（浮点格式可能差最后一位）。- 论文正文 `report.md` 与 `report.docx` 刻意不纳入 Git：仓库只版本化脚本、数据与图，避免论文随仓库分发。克隆后需要 `make docx` 时，请自行在本机放置 `report.md`。
+- `decision_ms` 为运行时测量，复现时会有毫秒级抖动；其余指标应逐位一致（浮点格式可能差最后一位）。
+- 论文正文 `report.md`、`report.docx` 与排版脚本 `make_docx.py` 仅本地保留，不纳入 Git；仓库只版本化脚本、数据与图。

@@ -10,7 +10,7 @@ python -m venv .venv
 确认系统工具：
 
 ```bash
-pandoc --version
+
 dot -V
 ```
 
@@ -28,13 +28,13 @@ dot -V
 
 该命令不重跑仿真，只从 `data/research/*.json` 重算均值并核对 `data/expected_metrics.json`。
 
-## 3. 重建图表与 docx（不重跑仿真）
+## 3. 重建图表（不重跑仿真）
 
 ```bash
-make figures docx
+make figures
 ```
 
-生成 `figures/` 下 18 张图与 `report.docx`。若字体缺失，图中中文可能显示为方框，见 `ENVIRONMENT.md`。
+生成 `figures/` 下 18 张图。若字体缺失，图中中文可能显示为方框，见 `ENVIRONMENT.md`。
 
 ## 4. 全量重跑
 
@@ -54,7 +54,7 @@ make all
 8. `collect_derived.py`：真实切片指标、统一规模表、公平性指标
 9. `offline_bruteforce.py`：6/8 车顺序空间穷举
 10. `analyze_adaptive.py`、`analyze_research.py`、`stats_analysis.py`：统计量
-11. 绘图与 `make_docx.py`
+11. 绘图
 
 ## 5. CP-SAT（可选）
 
@@ -85,8 +85,6 @@ make cpsat
 **`No module named ortools`**
 只影响 `cpsat_offline.py`。按第 5 节建独立 venv。
 
-**docx 中表格被压扁或丢列**
-确认 `pandoc` 可用；`make_docx.py` 会在转换后修复 `tblW`/`tblGrid`。若仍异常，检查 `report.md` 中表格分隔行 `---` 数量是否与表头列数一致。
 
 **图 1–3 生成失败**
 需要 `dot`（Graphviz）。图 4–16 只需要 matplotlib。
