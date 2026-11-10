@@ -7,12 +7,6 @@ python -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-确认系统工具：
-
-```bash
-
-dot -V
-```
 
 ## 2. 只校验冻结结果
 
@@ -34,7 +28,7 @@ dot -V
 make figures
 ```
 
-生成 `figures/` 下 18 张图。若字体缺失，图中中文可能显示为方框，见 `ENVIRONMENT.md`。
+生成图 4–16 与附录图；图 1–3 为静态示意图。若字体缺失，图中中文可能显示为方框，见 `ENVIRONMENT.md`。
 
 ## 4. 全量重跑
 
@@ -85,9 +79,6 @@ make cpsat
 **`No module named ortools`**
 只影响 `cpsat_offline.py`。按第 5 节建独立 venv。
 
-
-**图 1–3 生成失败**
-需要 `dot`（Graphviz）。图 4–16 只需要 matplotlib。
 
 **结果与报告不一致**
 先跑 `verify.py`：若通过，说明冻结数据一致，差异在报告文本或图；若失败，说明数据被改动。`decision_ms` 是运行时测量，允许毫秒级抖动。

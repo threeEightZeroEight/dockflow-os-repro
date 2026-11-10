@@ -21,14 +21,13 @@ python -m venv .venv
 .venv/bin/python verify.py          # 校验冻结数据的关键数值
 ```
 
-系统还需要 `dot`（生成图 1–3）。版本与安装说明见 `docs/ENVIRONMENT.md`。
 
 ## 复现分级
 
 | 级别 | 命令 | 说明 |
 |---|---|---|
 | R0 直接审阅 | 无 | 直接查看 `data/`、`figures/` |
-| R1 重建图表 | `make figures` | 不重跑仿真，分钟级 |
+| R1 重建图表 | `make figures` | 重建图 4–16 与附录图；图 1–3 为静态示意图 |
 | R2 全量重跑 | `make all` | 重跑全部采集、统计与图 |
 | R3 离线最优 | `make venv-ortools cpsat` | CP-SAT 需独立环境 |
 
@@ -64,7 +63,7 @@ python -m venv .venv
 
 - Python 3.13
 - numpy 2.1.3、pandas 2.2.3、scipy 1.15.3、matplotlib 3.10.0
-- 系统：graphviz 16.1.0
+
 - CP-SAT：独立 venv 安装 `ortools==9.15.6755`（主环境可能因 libprotobuf 冲突失败）
 
 ## 数据来源与许可

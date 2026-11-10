@@ -14,17 +14,6 @@ python -c "import numpy,pandas,scipy,matplotlib; print(numpy.__version__, pandas
 
 本次冻结环境：numpy 2.1.3、pandas 2.2.3、scipy 1.15.3、matplotlib 3.10.0。
 
-## 系统工具
-
-| 工具 | 版本 | 用途 |
-|---|---|---|
-| Graphviz `dot` | 16.1.0 | 图 1–3 |
-
-macOS 安装：
-
-```bash
-brew install graphviz
-```
 
 ## 字体
 

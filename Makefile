@@ -21,7 +21,7 @@ analyze:
 	$(PY) analyze_research.py
 
 figures:
-	$(PY) make_diagrams.py
+
 	$(PY) make_figures.py
 	$(PY) make_research_figures.py
 	$(PY) make_adaptive_figures.py
