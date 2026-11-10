@@ -7,7 +7,8 @@ __pycache__/
 .vscode/
 report.md
 report.docx
-make_docx.pymake_diagrams.py
+make_docx.py
+make_diagrams.py
 figures/src/fig01_architecture.dot
 figures/src/fig02_state_machine.dot
 figures/src/fig03_dependency.dot
