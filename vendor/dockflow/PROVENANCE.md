@@ -36,7 +36,7 @@ make verify
 
 - 地址：https://github.com/threeEightZeroEight/dockflow-os-repro
 - 定位：DockFlow 项目的独立 OS 实验复现包，不是 DockFlow 主仓库的分支、镜像或替代品
-- 论文 `report.md` / `report.docx` 不纳入版本控制，仓库只版本化脚本、冻结数据与图
+
 
 ## 数据来源
 

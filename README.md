@@ -1,6 +1,6 @@
 # DockFlow OS 实验复现仓库
 
-本仓库是《前驱约束下的多资源调度：策略—负载交互与截止期失效的实证研究》的独立复现包，包含实验脚本、冻结数据与图表。论文正文、docx 与排版脚本**仅本地保留，不纳入版本控制**。
+本仓库是《前驱约束下的多资源调度：策略—负载交互与截止期失效的实证研究》的独立复现包，包含实验脚本、冻结数据与图表。
 
 它与 DockFlow 主仓库解耦：`vendor/dockflow/` 保存了运行实验所需的 `simulation`、`scheduler` 快照与 Mendeley 冻结实例，克隆本仓库即可复现，不依赖主仓库当前状态。来源版本见 `vendor/dockflow/PROVENANCE.md`。
 
@@ -10,7 +10,7 @@
 
 - 源项目：DockFlow（小组共享仓库，https://github.com/thetree61/DockFlow；快照提交 `e2b9d39`）
 - `vendor/dockflow/` 仅固定运行实验所需的 `simulation`、`scheduler` 与 `scenario_21.json`
-- 论文正文、docx 与排版脚本 **不纳入本仓库**；这里只版本化脚本、冻结数据与图
+
 - 同步方式、来源与许可见 `vendor/dockflow/PROVENANCE.md`
 
 ## 快速开始
@@ -78,4 +78,3 @@ python -m venv .venv
 - 报告中的合成实例覆盖 20–160 辆、三种竞争强度与四类实例族；真实实例只有一个公开冻结样本。
 - `cpsat_offline.py` 依赖 OR-Tools，不在默认 `requirements.txt` 中。
 - `decision_ms` 为运行时测量，复现时会有毫秒级抖动；其余指标应逐位一致（浮点格式可能差最后一位）。
-- 论文正文 `report.md`、`report.docx` 与排版脚本 `make_docx.py` 仅本地保留，不纳入 Git；仓库只版本化脚本、数据与图。
