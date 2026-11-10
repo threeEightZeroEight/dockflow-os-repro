@@ -32,6 +32,12 @@ make verify
 
 若关键数值变化，说明语义改变，需要同时更新 `data/expected_metrics.json` 与报告正文，而不是只改脚本。
 
+## 复现仓库
+
+- 地址：https://github.com/threeEightZeroEight/dockflow-os-repro
+- 定位：DockFlow 项目的独立 OS 实验复现包，不是 DockFlow 主仓库的分支、镜像或替代品
+- 论文 `report.md` / `report.docx` 不纳入版本控制，仓库只版本化脚本、冻结数据与图
+
 ## 数据来源
 
 - `scenario_21.json`：Mendeley 公开交叉转运数据集，Dataset_ch5 / DoorSet_2 / LL_21-30 中的第 21 个实例，53 入站 / 54 出站 / 10 月台 / 1378 托盘。

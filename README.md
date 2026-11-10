@@ -4,6 +4,15 @@
 
 它与 DockFlow 主仓库解耦：`vendor/dockflow/` 保存了运行实验所需的 `simulation`、`scheduler` 快照与 Mendeley 冻结实例，克隆本仓库即可复现，不依赖主仓库当前状态。来源版本见 `vendor/dockflow/PROVENANCE.md`。
 
+## 与 DockFlow 项目的关系
+
+本仓库是 DockFlow 项目的**独立 OS 实验复现包**，不是 DockFlow 主仓库的分支、镜像或替代品。
+
+- 源项目：DockFlow（小组共享仓库，快照提交 `e2b9d39`）
+- `vendor/dockflow/` 仅固定运行实验所需的 `simulation`、`scheduler` 与 `scenario_21.json`
+- 论文正文与 docx **不纳入本仓库**；这里只版本化脚本、冻结数据与图
+- 同步方式、来源与许可见 `vendor/dockflow/PROVENANCE.md`
+
 ## 快速开始
 
 ```bash
