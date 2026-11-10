@@ -28,9 +28,9 @@ plt.rcParams.update({
 ORDER = ["edf", "qedf", "spt", "dependency_aware", "joint_da", "rh_da"]
 LABELS = {"edf": "EDF", "qedf": "QEDF（无门控）", "aqedf": "AQEDF（本文）", "spt": "SPT",
           "dependency_aware": "DA", "joint_da": "JointDA", "rh_da": "RH-DA"}
-COLORS = {"edf": "#8769ad", "qedf": "#c97c5a", "aqedf": "#c0392b",
-          "spt": "#4275ad", "dependency_aware": "#be8254", "joint_da": "#b66b79",
-          "rh_da": "#5b8b69"}
+COLORS = {"edf": "#8E82A6", "qedf": "#B49A80", "aqedf": "#B06A60",
+          "spt": "#6E8FA8", "dependency_aware": "#B49A80", "joint_da": "#B08088",
+          "rh_da": "#7E9A85"}
 
 
 def load(name: str) -> list[dict]:
@@ -67,7 +67,7 @@ def fig13() -> Path:
             errs.append(half)
         bars = ax.bar(range(len(ORDER)), means, yerr=errs, capsize=3,
                       color=[COLORS[a] for a in ORDER], edgecolor="white", linewidth=0.6)
-        bars[ORDER.index("qedf")].set_edgecolor("#c0392b")
+        bars[ORDER.index("qedf")].set_edgecolor("#B06A60")
         bars[ORDER.index("qedf")].set_linewidth(2.0)
         ax.set_xticks(range(len(ORDER)))
         ax.set_xticklabels([LABELS[a] for a in ORDER], rotation=20, fontsize=8.5)
@@ -76,7 +76,7 @@ def fig13() -> Path:
         for bar, value in zip(bars, means):
             ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(),
                     f"{value:.3f}", ha="center", va="bottom", fontsize=7)
-    fig.suptitle("图 13 队列感知 EDF（QEDF）的适用区间：中负载无差异，高排队压力下逾期率最低",
+    fig.suptitle("无门控 QEDF：中等负载过度修正，高排队压力下有效",
                  fontsize=12)
     fig.tight_layout()
     path = FIG / "fig13_qedf.png"
@@ -104,7 +104,7 @@ def fig14() -> Path:
         ax.fill_between(xs, lows, highs, color=COLORS[algorithm], alpha=0.12)
     ax.set_xlabel("依赖比例")
     ax.set_ylabel("出站逾期率")
-    ax.set_title("图 16 固定规模（30/30，5 月台）下 QEDF 并无收益：\n"
+    ax.set_title("固定规模（30/30，5 月台）下 QEDF 并无收益：\n"
                  "修正需要足够的排队压力，而非单纯依赖比例")
     ax.legend(fontsize=9)
     fig.tight_layout()

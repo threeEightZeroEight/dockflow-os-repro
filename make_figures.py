@@ -14,8 +14,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-REPO_ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(REPO_ROOT / "vendor" / "dockflow"))
+REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT))
 
 HERE = Path(__file__).resolve().parent
@@ -40,9 +39,9 @@ LABELS = {
     "aqedf": "AQEDF",
 }
 COLORS = {
-    "fcfs": "#65788d", "spt": "#4275ad", "edf": "#8769ad", "edf_aging": "#288b85",
-    "dependency_aware": "#be8254", "joint_da": "#b66b79", "rh_da": "#5b8b69",
-    "aqedf": "#c0392b",
+    "fcfs": "#7A8796", "spt": "#6E8FA8", "edf": "#8E82A6", "edf_aging": "#6F9A94",
+    "dependency_aware": "#B49A80", "joint_da": "#B08088", "rh_da": "#7E9A85",
+    "aqedf": "#B06A60",
 }
 LEVELS = ["low", "medium", "high"]
 LEVEL_LABELS = {
@@ -184,7 +183,7 @@ def fig08_ablation() -> Path:
             means.append(mean)
             errs.append(half)
         bars = ax.bar(range(len(variants)), means, yerr=errs, capsize=3,
-                      color=["#4b5b6b"] + ["#be8254"] * (len(variants) - 1),
+                      color=["#6F7C89"] + ["#B49A80"] * (len(variants) - 1),
                       edgecolor="white")
         ax.set_xticks(range(len(variants)))
         ax.set_xticklabels(variants, rotation=30, fontsize=8)
@@ -294,7 +293,7 @@ def fig12_gantt() -> Path:
             if start is None:
                 continue
             y = y_base[event["dock_id"]]
-            color = "#288b85" if direction[truck_id] == "IN" else "#be8254"
+            color = "#6F9A94" if direction[truck_id] == "IN" else "#B49A80"
             service_start = started.get(truck_id, start)
             service_end = finished.get(truck_id, event["time"])
             ax.barh(y, service_start - start, left=start, height=0.55, color=color, alpha=0.35)
@@ -308,7 +307,7 @@ def fig12_gantt() -> Path:
     ax.set_yticklabels(docks)
     ax.set_xlabel("仿真时间（分钟）")
     ax.set_ylabel("月台")
-    ax.set_title("图 12 真实调度甘特图（JointDA，小规模实例）：浅色为驶入/驶出，深色为装卸")
+    ax.set_title("示例调度甘特图（JointDA，小规模合成实例）：浅色为驶入/驶出，深色为装卸")
     return save(fig, "fig12_gantt.png")
 
 
@@ -320,35 +319,44 @@ def figA1_sequence() -> Path:
     actors = ["仿真引擎", "调度算法", "事件日志", "存储"]
     xs = [1.3, 4.3, 7.0, 9.0]
     for x, name in zip(xs, actors):
-        ax.add_patch(plt.Rectangle((x - 0.85, 9.0), 1.7, 0.6, facecolor="#eef2f7",
-                                   edgecolor="#5b6b7b"))
-        ax.text(x, 9.3, name, ha="center", va="center", fontsize=9)
-        ax.plot([x, x], [0.4, 9.0], linestyle="--", color="#9aa7b4", linewidth=0.9)
+        ax.add_patch(plt.Rectangle((x - 0.85, 9.0), 1.7, 0.6, facecolor="#EEF1F4",
+                                   edgecolor="#6F7C89"))
+        ax.text(x, 9.3, name, ha="center", va="center", fontsize=9, color="#5F6B78")
+        ax.plot([x, x], [0.4, 9.0], linestyle="--", color="#A5AFB9", linewidth=0.9)
+    activation = {0: (4.0, 8.7), 1: (6.8, 8.5), 2: (3.3, 4.2), 3: (2.6, 3.5)}
+    for idx, (bottom, top) in activation.items():
+        x = xs[idx]
+        ax.add_patch(plt.Rectangle((x - 0.07, bottom), 0.14, top - bottom,
+                                   facecolor="#DDE3E9", edgecolor="#A5AFB9",
+                                   linewidth=0.5, zorder=1))
     messages = [
-        (0, 1, "select_next(就绪快照, 月台, 当前时刻, 配置)", 8.4),
-        (1, 1, "评分 / 联合匹配 / 前瞻推演（只读）", 7.6),
-        (1, 0, "返回 truck_id 或 None", 6.9),
-        (0, 0, "DOCK_ASSIGNED; READY → APPROACHING", 6.2),
-        (0, 0, "SERVICE_FINISHED：入站卸完解锁出站", 5.5),
-        (0, 0, "DOCK_RELEASED：月台释放", 4.8),
-        (0, 2, "追加事件（seq, time, type, data）", 4.1),
-        (2, 3, "持久化运行与事件", 3.4),
-        (3, 0, "分页读取并回放", 2.7),
+        (0, 1, "select_next(就绪快照, 月台, 当前时刻, 配置)", 8.4, "sync"),
+        (1, 1, "评分 / 联合匹配 / 前瞻推演（只读）", 7.6, "self"),
+        (1, 0, "返回 truck_id 或 None", 6.9, "return"),
+        (0, 0, "DOCK_ASSIGNED; READY → APPROACHING", 6.2, "self"),
+        (0, 0, "SERVICE_FINISHED：入站卸完解锁出站", 5.5, "self"),
+        (0, 0, "DOCK_RELEASED：月台释放", 4.8, "self"),
+        (0, 2, "追加事件（seq, time, type, data）", 4.1, "sync"),
+        (2, 3, "持久化运行与事件", 3.4, "sync"),
+        (3, 0, "分页读取并回放", 2.7, "return"),
     ]
-    for src, dst, label, y in messages:
+    for src, dst, label, y, kind in messages:
         if src == dst:
             x = xs[src]
             ax.add_patch(plt.Rectangle((x - 0.09, y - 0.2), 0.18, 0.4,
-                                       facecolor="white", edgecolor="#3c5a78"))
-            ax.text(x + 0.2, y, label, ha="left", va="center", fontsize=8)
+                                       facecolor="#F4F6F8", edgecolor="#6F7C89", zorder=2))
+            ax.text(x + 0.2, y, label, ha="left", va="center", fontsize=8, color="#5F6B78")
         else:
             direction = 1 if dst > src else -1
+            dashed = kind == "return"
             ax.annotate("", xy=(xs[dst] - 0.05 * direction, y),
                         xytext=(xs[src] + 0.05 * direction, y),
-                        arrowprops=dict(arrowstyle="-|>", color="#3c5a78", lw=1.3))
+                        arrowprops=dict(arrowstyle=("->" if dashed else "-|>"),
+                                        color=("#7A8794" if dashed else "#5E6F80"),
+                                        lw=1.2, linestyle=("--" if dashed else "-")))
             ax.text((xs[src] + xs[dst]) / 2, y + 0.12, label, ha="center",
-                    va="bottom", fontsize=8)
-    ax.set_title("图 A1 调度调用时序（非抢占、只读快照）")
+                    va="bottom", fontsize=8, color="#5F6B78")
+    ax.set_title("调度调用时序（非抢占、只读快照）")
     return save(fig, "figA1_sequence.png")
 
 

@@ -28,7 +28,7 @@ S = json.loads((DATA / "stats_adaptive.json").read_text(encoding="utf-8"))
 SCENARIOS = ["low", "medium", "high", "n120", "n160"]
 LABELS = {"low": "低负载\n15/15·8台", "medium": "中负载\n30/30·5台",
           "high": "高负载\n50/50·3台", "n120": "120 辆", "n160": "160 辆"}
-COLORS = {"edf": "#8769ad", "qedf": "#c97c5a", "aqedf": "#c0392b"}
+COLORS = {"edf": "#8E82A6", "qedf": "#B49A80", "aqedf": "#B06A60"}
 NAMES = {"edf": "EDF", "qedf": "QEDF（无门控）", "aqedf": "AQEDF（自适应）"}
 
 
@@ -66,7 +66,7 @@ def main() -> None:
     ax.set_title("(b) 固定小规模：门控正确退化，AQEDF 贴近 EDF", fontsize=10)
     ax.legend(fontsize=8)
 
-    fig.suptitle("图 14 自适应队列感知 EDF（AQEDF）：按排队压力启用修正，实现高压力下稳定改善",
+    fig.suptitle("自适应队列感知 EDF（AQEDF）：按排队压力启用修正，实现高压力下稳定改善",
                  fontsize=12)
     fig.tight_layout()
     path = FIG / "fig14_aqedf.png"

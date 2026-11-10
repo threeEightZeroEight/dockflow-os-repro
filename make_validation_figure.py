@@ -14,7 +14,7 @@ rows=list(csv.DictReader(open(DATA/"validation_selection.csv",encoding="utf-8"))
 S=json.load(open(DATA/"validation_summary.json",encoding="utf-8"))
 fig,axes=plt.subplots(1,2,figsize=(13,4.8))
 ax=axes[0]
-for metric,color,label in (("select_medium_miss","#8769ad","中负载"),("select_high_miss","#c0392b","高负载")):
+for metric,color,label in (("select_medium_miss","#8E82A6","中负载"),("select_high_miss","#B06A60","高负载")):
     xs=[];ys=[]
     for r in rows:
         if float(r["lambda"])==1.0:
@@ -26,10 +26,10 @@ ax=axes[1]
 labels={"medium":"中负载","high":"高负载","n120":"120 辆","n160":"160 辆"}
 names=[labels[k] for k in ("medium","high","n120","n160")]
 vals=[S["by_scenario"][k]["ratio"]*100 for k in ("medium","high","n120","n160")]
-bars=ax.bar(names,vals,color="#5b8b69")
+bars=ax.bar(names,vals,color="#7E9A85")
 ax.set_ylim(0,110); ax.set_ylabel("不劣实例比例 (%)")
 ax.set_title("(b) 独立确认集：逐实例不劣比例",fontsize=10)
 for b,v in zip(bars,vals): ax.text(b.get_x()+b.get_width()/2,v+2,f"{v:.0f}%",ha="center",fontsize=9)
-fig.suptitle("图 15 独立验证：参数在选择集上确定，效果在独立种子集上报告",fontsize=12)
+fig.suptitle("独立验证：参数在选择集上确定，效果在独立种子集上报告",fontsize=12)
 fig.tight_layout(); fig.savefig(HERE/"figures"/"fig15_validation.png"); plt.close(fig)
 print("生成 figures/fig15_validation.png")
