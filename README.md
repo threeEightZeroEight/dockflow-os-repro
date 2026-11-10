@@ -27,7 +27,7 @@ python -m venv .venv
 | 级别 | 命令 | 说明 |
 |---|---|---|
 | R0 直接审阅 | 无 | 直接查看 `data/`、`figures/` |
-| R1 重建图表 | `make figures` | 重建图 4–16 与附录图；图 1–3 为静态示意图 |
+| R1 重建图表 | `make figures` | 重建图 5–17 与附录图；图 1–4 为静态示意图 |
 | R2 全量重跑 | `make all` | 重跑全部采集、统计与图 |
 | R3 离线最优 | `make venv-ortools cpsat` | CP-SAT 需独立环境 |
 
@@ -47,7 +47,7 @@ python -m venv .venv
 ├── research/slices/        # 3 个 Mendeley 时间切片
 ├── vendor/dockflow/        # simulation / scheduler 快照 + scenario_21.json
 ├── data/                   # 冻结结果（CSV / JSON）
-└── figures/                # 17 张正文图与 1 张附录图
+└── figures/                # 18 张正文图与 1 张附录图
 ```
 
 ## 关键结果与校验口径

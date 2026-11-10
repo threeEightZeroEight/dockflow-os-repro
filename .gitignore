@@ -9,6 +9,7 @@ report.md
 report.docx
 make_docx.py
 make_diagrams.py
+figures/src/fig00_usecase.dot
 figures/src/fig01_architecture.dot
 figures/src/fig02_state_machine.dot
 figures/src/fig03_dependency.dot
